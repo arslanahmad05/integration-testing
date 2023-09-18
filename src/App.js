@@ -18,40 +18,40 @@ function App() {
   //   gapi.load("client:auth2", start)
   // }, [])
 
-  const getToken = async () => {
-    try {
-      const response = await axios.post(
-        "https://ads.tiktok.com/open_api/oauth2/access_token/",
-        null,
-        {
-          params: {
-            app_id: "7272720109842761734",
-            secret: "",
-            grant_type: "client_credentials",
-          },
-        }
-      )
+  // const getToken = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       "https://ads.tiktok.com/open_api/oauth2/access_token/",
+  //       null,
+  //       {
+  //         params: {
+  //           app_id: "7272720109842761734",
+  //           secret: "",
+  //           grant_type: "client_credentials",
+  //         },
+  //       }
+  //     )
 
-      const accessToken = response.data.data.access_token
-      return accessToken
-    } catch (error) {
-      console.error("Error fetching access token:", error)
-      throw error
-    }
-  }
+  //     const accessToken = response.data.data.access_token
+  //     return accessToken
+  //   } catch (error) {
+  //     console.error("Error fetching access token:", error)
+  //     throw error
+  //   }
+  // }
 
-  const handleInstagramLogin = () => {
-    // Redirect the user to the Instagram authorization page
-    window.location.href =
-      "https://www.instagram.com/oauth/authorize" +
-      "?client_id=960898401841943" +
-      "&redirect_uri=http://localhost:3001/api/v1/auth/instagram/callback" +
-      "&scope=user_profile,user_media" + // Specify the required permissions
-      "&response_type=code"
-  }
-  const responseFacebook = (response) => {
-    console.log(response)
-  }
+  // const handleInstagramLogin = () => {
+  //   // Redirect the user to the Instagram authorization page
+  //   window.location.href =
+  //     "https://www.instagram.com/oauth/authorize" +
+  //     "?client_id=960898401841943" +
+  //     "&redirect_uri=http://localhost:3001/api/v1/auth/instagram/callback" +
+  //     "&scope=user_profile,user_media" + // Specify the required permissions
+  //     "&response_type=code"
+  // }
+  // const responseFacebook = (response) => {
+  //   console.log(response)
+  // }
 
   const responseGoogle = (response) => {
     debugger
@@ -101,7 +101,7 @@ function App() {
         onFailure={responseGoogle}
       />
 
-      <h1>LOGIN WITH FACEBOOK Account</h1>
+      {/* <h1>LOGIN WITH FACEBOOK Account</h1>
       <FacebookLogin
         appId="794838042192093" //APP ID NOT CREATED YET
         fields="name,email,picture"
@@ -117,9 +117,9 @@ function App() {
         fields="name,email,picture"
         scope="ads_management,ads_read"
         callback={responseFacebook}
-      />
+      /> */}
 
-      <hr />
+      {/* <hr />
       <h1>Instagram</h1>
       <FacebookLogin
         appId="1315367659088977" //APP ID NOT CREATED YET
@@ -127,7 +127,7 @@ function App() {
         scope="pages_show_list,pages_manage_ads,instagram_manage_insights"
         responseType="code"
         callback={responseFacebook}
-      />
+      /> */}
     </>
   )
 }
